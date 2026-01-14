@@ -56,13 +56,6 @@ export default function MainGallery({ profileId = null }) {
   const handleFileUpload = async (files) => {
     if (!files || files.length === 0) return;
 
-    // Check if user is logged in
-    if (!session?.user?.id) {
-      setError("Please log in to upload images");
-      setTimeout(() => setError(""), 5000);
-      return;
-    }
-
     setError("");
     setLoading(true);
 
@@ -150,7 +143,13 @@ export default function MainGallery({ profileId = null }) {
   return (
     <div>
       {/* Upload Button */}
-      <UploadButton onFileSelect={handleFileUpload} />
+      <UploadButton
+        onFileSelect={handleFileUpload}
+        onError={(errorMsg) => {
+          setError(errorMsg);
+          setTimeout(() => setError(""), 5000);
+        }}
+      />
 
       {/* Error Message */}
       {error && (

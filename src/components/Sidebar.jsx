@@ -80,7 +80,7 @@ export default function Sidebar({ onProfileSelect }) {
   if (!session) {
     return (
       <div className="sidebar">
-        <p style={{ color: "#ccc" }}>You must be authorised to view this</p>
+        <p style={{ color: "#ccc" }}>You must be logged in to view this</p>
       </div>
     );
   }

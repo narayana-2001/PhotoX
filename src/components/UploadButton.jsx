@@ -1,10 +1,17 @@
 import React, { useRef } from "react";
+import { UserAuth } from "../context/AuthContext";
 import "../index.css";
 
-const UploadButton = ({ onFileSelect }) => {
+const UploadButton = ({ onFileSelect, onError }) => {
   const fileInputRef = useRef(null);
+  const { session } = UserAuth();
 
   const handleButtonClick = () => {
+    // Check if user is logged in before opening file dialog
+    if (!session?.user?.id) {
+      onError("Please log in to upload images");
+      return;
+    }
     fileInputRef.current.click();
   };
 
