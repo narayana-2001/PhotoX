@@ -16,7 +16,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import MainGallery from "./components/MainGallery";
 import SignUp from "./components/Auth/SignUp";
-import SignOut from "./components/Auth/Signout";
+import SignOut from "./components/Auth/SignOut";
 import { UserAuth } from "./context/AuthContext";
 import UploadButton from "./components/UploadButton";
 import "./index.css";
